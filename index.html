@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Blood Donation Finder</h1>
+            <p>Find blood donors in emergency situations</p>
+        </header>
+
+        <div class="search-section">
+            <h2>Search for Blood Donors</h2>
+            <div class="search-box">
+                <select id="bloodTypeSearch">
+                    <option value="">Select Blood Type</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+                <button id="searchBtn">Search</button>
+            </div>
+            
+            <div class="results" id="searchResults">
+                <!-- Results will appear here -->
+            </div>
+        </div>
+
+        <div class="register-section">
+            <h2>Register as a Donor</h2>
+            <form id="donorForm">
+                <div class="form-group">
+                    <input type="text" id="donorName" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="donorEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="donorPhone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <select id="donorBloodType" required>
+                        <option value="">Select Your Blood Type</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="donorLocation" placeholder="City, State" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastDonation">Last Donation Date (if any):</label>
+                    <input type="date" id="lastDonation">
+                </div>
+                <button type="submit">Register as Donor</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+
+
+    <script type="module">
+          // Import the functions you need from the SDKs you need
+          import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+          import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
+          // TODO: Add SDKs for Firebase products that you want to use
+          // https://firebase.google.com/docs/web/setup#available-libraries
+
+          // Your web app's Firebase configuration
+          // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+          const firebaseConfig = {
+            apiKey: "AIzaSyDJ8bMlm_mhT4pnZJYrluUCi1U7ULo6vRk",
+            authDomain: "huee-7f5c9.firebaseapp.com",
+            projectId: "huee-7f5c9",
+            storageBucket: "huee-7f5c9.firebasestorage.app",
+            messagingSenderId: "745354960444",
+            appId: "1:745354960444:web:b9998db50460791619ad39",
+            measurementId: "G-NT9EYM5VHC"
+          };
+
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          const analytics = getAnalytics(app);
+        </script>
+
+</body>
+</html>
