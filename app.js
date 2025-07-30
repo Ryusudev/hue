@@ -1,3 +1,6 @@
+import { db } from './firebase-config.js';
+import { collection, query, where, getDocs, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
 document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
     const bloodTypeSearch = document.getElementById('bloodTypeSearch');
@@ -22,9 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         try {
             // Query Firestore for donors with matching blood type
-            const querySnapshot = await db.collection('donors')
-                .where('bloodType', '==', bloodType)
-                .get();
+            const q = query(collection(db, 'donors'), where('bloodType', '==', bloodType));
+            const querySnapshot = await getDocs(q);
             
             searchResults.innerHTML = '';
             
@@ -56,11 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
     async function registerDonor(e) {
         e.preventDefault();
         
-        const name = document.getElementById('donorName').value;
-        const email = document.getElementById('donorEmail').value;
-        const phone = document.getElementById('donorPhone').value;
+        const name = document.getElementById('donorName').value.trim();
+        const email = document.getElementById('donorEmail').value.trim();
+        const phone = document.getElementById('donorPhone').value.trim();
         const bloodType = document.getElementById('donorBloodType').value;
-        const location = document.getElementById('donorLocation').value;
+        const location = document.getElementById('donorLocation').value.trim();
         const lastDonation = document.getElementById('lastDonation').value;
         
         if (!name || !email || !phone || !bloodType || !location) {
@@ -70,21 +72,21 @@ document.addEventListener('DOMContentLoaded', function() {
         
         try {
             // Add donor to Firestore
-            await db.collection('donors').add({
+            await addDoc(collection(db, 'donors'), {
                 name,
                 email,
                 phone,
                 bloodType,
                 location,
                 lastDonation: lastDonation || 'Not specified',
-                registeredAt: firebase.firestore.FieldValue.serverTimestamp()
+                registeredAt: serverTimestamp()
             });
             
             alert('Thank you for registering as a blood donor!');
             donorForm.reset();
         } catch (error) {
             console.error('Error registering donor:', error);
-            alert('Error registering. Please try again.');
+            alert(`Error registering: ${error.message}`);
         }
     }
 });
