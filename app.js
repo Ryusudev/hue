@@ -103,3 +103,75 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+
+async function searchDonors() {
+    const bloodType = bloodTypeSearch.value;
+    
+    if (!bloodType) {
+        alert('Please select a blood type');
+        return;
+    }
+    
+    try {
+        // Show loading state
+        searchResults.innerHTML = '<div class="loading">Searching donors...</div>';
+        
+        // Debug: Log the blood type being searched
+        console.log(`Searching for blood type: ${bloodType}`);
+        
+        // Create query
+        const donorsRef = collection(db, 'donors');
+        const bloodTypeQuery = query(donorsRef, where('bloodType', '==', bloodType));
+        
+        // Debug: Log the query being executed
+        console.log("Firestore query:", bloodTypeQuery);
+        
+        // Execute query
+        const querySnapshot = await getDocs(bloodTypeQuery);
+        
+        // Debug: Log query results
+        console.log(`Found ${querySnapshot.size} matching donors`);
+        
+        // Clear previous results
+        searchResults.innerHTML = '';
+        
+        if (querySnapshot.empty) {
+            searchResults.innerHTML = `
+                <div class="no-results">
+                    <p>No donors found with blood type ${bloodType}.</p>
+                    <p>Please check back later or register as a donor.</p>
+                </div>
+            `;
+            return;
+        }
+        
+        // Process and display results
+        querySnapshot.forEach(doc => {
+            const donor = doc.data();
+            console.log("Donor data:", donor); // Debug log
+            
+            const donorCard = document.createElement('div');
+            donorCard.className = 'donor-card';
+            donorCard.innerHTML = `
+                <h3>${donor.name || 'Anonymous Donor'}</h3>
+                <p><strong>Blood Type:</strong> ${donor.bloodType || 'Unknown'}</p>
+                <p><strong>Location:</strong> ${donor.location || 'Location not specified'}</p>
+                <p><strong>Contact:</strong> ${donor.phone || 'Contact not provided'}</p>
+                <p><strong>Last Donation:</strong> ${donor.lastDonation || 'Not specified'}</p>
+                ${donor.email ? `<p class="email"><strong>Email:</strong> ${donor.email}</p>` : ''}
+            `;
+            searchResults.appendChild(donorCard);
+        });
+        
+    } catch (error) {
+        console.error('Search error:', error);
+        searchResults.innerHTML = `
+            <div class="error">
+                <p>Error searching for donors.</p>
+                <p>${error.message}</p>
+                <p>Please try again later.</p>
+            </div>
+        `;
+    }
+}

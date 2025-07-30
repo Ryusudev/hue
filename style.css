@@ -121,3 +121,28 @@ button:hover {
         font-size: 2rem;
     }
 }
+    .loading, .no-results, .error {
+        padding: 20px;
+        text-align: center;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+
+    .loading {
+        color: #1d3557;
+    }
+
+    .no-results {
+        color: #457b9d;
+    }
+
+    .error {
+        color: #e63946;
+        border-left: 4px solid #e63946;
+    }
+
+    .email {
+        color: #666;
+        font-size: 0.9em;
+    }
