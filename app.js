@@ -1,4 +1,17 @@
+ import { db } from './firebase-config.js';
+import { 
+  collection, 
+  query, 
+  where, 
+  getDocs, 
+  addDoc, 
+  serverTimestamp 
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+// ... rest of your existing app.js code ...
+ 
 import { db } from './firebase-config.js';
+
 import { collection, query, where, getDocs, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 document.addEventListener('DOMContentLoaded', function() {
