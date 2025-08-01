@@ -129,3 +129,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// test animation for pixel stars
