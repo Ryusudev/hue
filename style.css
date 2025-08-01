@@ -24,6 +24,9 @@
   padding: 10px;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.1);
+  border-left: 10px solid rgb(197, 45, 45);
+  padding-left:20px ;
+  
 }
 
 
