@@ -11,10 +11,6 @@
   
   
 }
-body {
-  margin-bottom: -1000px;
-  
-}
 
 .image {
   display: inline-block;
@@ -23,4 +19,9 @@ body {
  
 
 }
+.body {
+
+  background-color: aliceblue;
+}
+
 

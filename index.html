@@ -7,26 +7,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Roboto:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css" >
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
+        /* Prevent extra space and enable smooth scrolling */
+        html, body {
+            overflow-x: hidden;
             margin: 0;
-            background-color: #000;
-            color: white;
-            font-family: 'Bitcount Prop Single', sans-serif;
+            padding: 0;
             height: 100%;
         }
         
-        #starfield {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            image-rendering: crisp-edges;
-            image-rendering: pixelated;
-            pointer-events: none;
+        body {
+            background-color: #000;
+            color: white;
+            font-family: 'Bitcount Prop Single', sans-serif;
         }
         
         /* Page container */
@@ -176,8 +170,6 @@
     </style>
 </head>
 <body>
-    <canvas id="starfield"></canvas>
-    
     <nav>
         <a onclick="showPage('home')">Home</a>
         <a onclick="showPage('register')">Register</a>
@@ -214,10 +206,11 @@
     <!-- Register Page -->
     <div id="register" class="page">
         <div class="page-content">
-            <h1>Register as a Donor</h1>
+            <p style="font-size: 40px;
+            margin-top: 60px;">Register as a Donor</p>
             <p>Join our network of life-savers today.</p>
             
-            <form id="donorForm">
+            <form style="margin-right: 20px;" id="donorForm">
                 <div class="form-group">
                     <input type="text" id="donorName" placeholder="Full Name" required>
                 </div>
@@ -229,7 +222,7 @@
                 </div>
                 <div class="form-group">
                     <select id="donorBloodType" required>
-                        <option value="" style="color: #888;">Select Your Blood Type</option>
+                        <option value="" style="color: #888; ">Select Your Blood Type</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
                         <option value="B+">B+</option>
@@ -257,14 +250,14 @@
     <!-- Find Donors Page -->
     <div id="find" class="page">
         <div class="page-content">
-            <h1>Find Blood Donors</h1>
+            <p style="font-size: 40px;
+            margin-top: 60px;">Find Blood Donors</p>
             <p>Search for donors in your area.</p>
             
             <div class="search-section">
                 <div class="search-box">
-                    <select style="font-family: Bitcount Prop Single; height: 45px;  margin-top:20px;" id="bloodTypeSearch">
-                        <option value=""  style="color: #888;
-                        ">Select Blood Type</option>
+                    <select style="font-family: Bitcount Prop Single; height: 45px; margin-top:20px;" id="bloodTypeSearch">
+                        <option value="" style="color: #888;">Select Blood Type</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
                         <option value="B+">B+</option>
@@ -282,7 +275,7 @@
                 </div>
             </div>
             
-            <button onclick="showPage('home')" style="margin-top: 20px; font-family: Bitcount Prop Single; ">Back to Home</button>
+            <button onclick="showPage('home')" style="margin-top: 20px; font-family: Bitcount Prop Single;">Back to Home</button>
         </div>
     </div>
     
@@ -295,117 +288,100 @@
         </div>
     </div>
 
-
     <footer style="background: rgba(0,0,0,0.8); padding: 30px 0; margin-top: 50px;">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between;">
-    
-    <!-- Contact Info -->
-    <div>
-      <h3>Contact Us</h3>
-      <p>Email: 200821hujaifa843h09bv@gmail.com</p>
-      <p>Phone: 01318122263</p>
-      <p>Address: 123 Rayer Bagh, Dhaka</p>
-    </div>
-    
-    
-    
-    <!-- Social Media -->
-    <div>
-      <h3>Follow Us</h3>
-      <div style="display: flex; gap: 20px; justify-content: center; align-items: center; ">
-        <a href="https://www.facebook.com/share/1E4pdPnAMy/" target="_blank"><img class="image"  src="2021_Facebook_icon.svg.png" alt="Facebook" width="30"  ></a>
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between;">
+            <!-- Contact Info -->
+            <div style="margin-left: 20px;">
+                <h3>Contact Us</h3>
+                <p>Email: 200821hujaifa843h09bv@gmail.com</p>
+                <p>Phone: 01318122263</p>
+                <p>Address: 123 Rayer Bagh, Dhaka</p>
+            </div>
+            
+            <!-- Social Media -->
+            <div style="margin-right: 20px;">
+                <h3>Follow Us</h3>
+                <div style="display: flex; gap: 20px; justify-content: center; align-items: center;">
+                    <a href="https://www.facebook.com/share/1E4pdPnAMy/" target="_blank"><img src="2021_Facebook_icon.svg.png" alt="Facebook" width="30"></a>
+                    <a href="https://twitter.com/@ruspuru19742602" target="_blank"><img src="X_logo.jpg" alt="Twitter" width="30"></a>
+                    <a href="https://www.instagram.com/hujaifa_salman/" target="_blank"><img src="Instagram-Icon.png" alt="Instagram" width="30"></a>
+                </div>
+            </div> 
+            
+            <!-- Copyright -->
+            <div style="width: 100%; text-align: center; margin-top: 30px;">
+                <p>© 2025 Blood In Need. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-        <a href="https://twitter.com/@ruspuru19742602
-" target="_blank"><img src="X_logo.jpg" alt="Twitter" width="30"></a>
-        <a href="https://www.instagram.com/hujaifa_salman/" target="_blank"
-"><img src="Instagram-Icon.png" alt="Instagram" width="30"
-          ></a>
-      </div>
-    </div> 
-     
-    <!-- Copyright -->
-    <div style="width: 100%; text-align: center; margin-top: 30px;">
-      <p>© 2025 Blood In Need. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-
-<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-        style="position: fixed; bottom: 20px; right: 20px; 
-               background: #ff0000; color: white; border: none;
-               width: 50px; height: 50px; border-radius: 50%;
-               cursor: pointer; font-size: 20px;">
-  ↑
-</button>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            style="position: fixed; bottom: 20px; right: 20px; 
+                   background: #ff0000; color: white; border: none;
+                   width: 50px; height: 50px; border-radius: 50%;
+                   cursor: pointer; font-size: 20px;">
+        ↑
+    </button>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
     <script>
-        // Starfield animation
-        const canvas = document.getElementById('starfield');
-        const ctx = canvas.getContext('2d');
+        // Improved Smooth Scroll without extra space
+        gsap.registerPlugin(ScrollTrigger);
         
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        let currentY = 0;
+        let targetY = 0;
+        let animating = false;
+        let scrollTween;
         
-        const stars = [];
-        const starCount = 80;
-        
-        for (let i = 0; i < starCount; i++) {
-            stars.push({
-                x: Math.floor(Math.random() * canvas.width),
-                y: Math.floor(Math.random() * canvas.height * -1),
-                size: 1,
-                speed: Math.random() * 0.4 + 0.2,
-                blinkSpeed: Math.floor(Math.random() * 20) + 10,
-                blinkPhase: Math.floor(Math.random() * 20)
-            });
-        }
-        
-        function animate() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        function setupSmoothScroll() {
+            // Kill any existing animation
+            if (scrollTween) scrollTween.kill();
             
-            ctx.fillStyle = '#ffffff';
+            // Create scroll proxy
+            const scrollProxy = {
+                y: 0,
+                update: function() {
+                    window.scrollTo(0, this.y);
+                }
+            };
             
-            for (let i = 0; i < stars.length; i++) {
-                const star = stars[i];
-                star.blinkPhase++;
-                const visible = Math.sin(star.blinkPhase / star.blinkSpeed) > 0;
-                
-                if (visible) {
-                    ctx.fillRect(
-                        Math.floor(star.x), 
-                        Math.floor(star.y), 
-                        star.size, 
-                        star.size
-                    );
-                    
-                    if (Math.random() > 0.7) {
-                        ctx.fillRect(
-                            Math.floor(star.x), 
-                            Math.floor(star.y + 1), 
-                            star.size, 
-                            star.size
-                        );
+            // Set up scroll trigger
+            ScrollTrigger.create({
+                start: 0,
+                end: "max",
+                onUpdate: self => {
+                    targetY = self.scroll();
+                    if (!animating) {
+                        animating = true;
+                        requestAnimationFrame(animateScroll);
                     }
                 }
+            });
+            
+            // Animation loop
+            function animateScroll() {
+                currentY += (targetY - currentY) * 0.1; // Adjust for smoothness
+                scrollProxy.y = currentY;
+                scrollProxy.update();
                 
-                star.y += star.speed;
-                
-                if (star.y > canvas.height + 2) {
-                    star.x = Math.floor(Math.random() * canvas.width);
-                    star.y = Math.floor(Math.random() * 50 * -1);
-                    star.speed = Math.random() * 0.4 + 0.2;
+                if (Math.abs(targetY - currentY) > 0.5) {
+                    requestAnimationFrame(animateScroll);
+                } else {
+                    animating = false;
                 }
             }
             
-            requestAnimationFrame(animate);
+            // Initialize
+            ScrollTrigger.refresh();
         }
         
-        animate();
+        // Initialize smooth scroll
+        setupSmoothScroll();
+        
+        // Recalculate on resize
+        window.addEventListener("resize", setupSmoothScroll);
         
         // Page switching functionality
         function showPage(pageId) {
@@ -417,8 +393,20 @@
             // Show selected page
             document.getElementById(pageId).classList.add('active');
             
+            // Scroll to top
+            targetY = 0;
+            if (!animating) {
+                animating = true;
+                requestAnimationFrame(animateScroll);
+            }
+            
             // Update URL without reload
             history.pushState(null, null, `#${pageId}`);
+            
+            // Refresh scroll trigger after DOM update
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 100);
         }
         
         // Handle back/forward buttons
@@ -431,69 +419,6 @@
         const initialPage = window.location.hash.substring(1) || 'home';
         showPage(initialPage);
     </script>
-
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-      // Set up starfield canvas  
-    // Create smooth scroll container
-    const container = document.querySelector("body");
-    let height;
-    
-    function setHeight() {
-      height = container.scrollHeight;
-      document.body.style.height = height + "px";
-    }
-  
-  ScrollTrigger.addEventListener("refreshInit", setHeight);
-  
-  gsap.to(container, {
-    y: () => -(height - document.documentElement.clientHeight),
-    ease: "none",
-    scrollTrigger: {
-      trigger: document.body,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1,
-      invalidateOnRefresh: true
-    }
-  });
-</script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-
-<script>
-  gsap.registerPlugin(ScrollTrigger);
-  
-  // Basic animation
-  gsap.from(".hero-image", {
-    duration: 1.5,
-    y: 100,
-    opacity: 0,
-    ease: "power3.out",
-    stagger: 0.2
-  });
-
-  // Scroll-triggered animation
-  gsap.from(".feature-card", {
-    scrollTrigger: {
-      trigger: ".feature-section",
-      start: "top 80%",
-      toggleActions: "play none none none"
-    },
-    x: -50,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2
-  });
-</script>
-
-
-
 
     <!-- Firebase scripts -->
     <script type="module" src="./firebase-config.js?v=1.0.1"></script>
