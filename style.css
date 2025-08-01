@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 110px;
+  gap: 100px;
   margin-bottom: 50px;
   
   
@@ -21,7 +21,7 @@
 }
 .results {
   border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.1);
 }
